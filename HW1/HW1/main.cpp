@@ -10,9 +10,17 @@
 	Operating System : Windows 10
 */
 
+/*	Program Description
+	___________________
+
+	Develope a C++ program for caculating parking fee. It prompts the user for vechicle type and how long the vehicle has been parked in minutes.
+	Based on the inputs the program would calculate and displays the appropriate fee. The primary purpose of the main function is to act as a selection system
+	and call the approiate functions based on user's input
+*/
+
+
 #include <iostream>
 #include <cmath>
-#include <string>
 #include <iomanip>
 using namespace std;
 
@@ -50,17 +58,6 @@ void showHelp() {
 int getCharge(char type) {
 	double  minutes, charge, hours, rate0, rate1, rate2, interval;
 
-	cout << "Please enter the number of minutes you have parked in the lot: ";
-
-	cin >> minutes;
-	if (minutes < 0) {
-		cout << "Invalid input\n";
-		system("pause");
-		return -1;
-	}
-
-	hours = round(minutes / 60);
-
 	switch (type) {
 		case 'c':
 			rate0 = 0.00;
@@ -75,21 +72,32 @@ int getCharge(char type) {
 			interval = 5.0;
 			break;
 		case 's':
-			cout << "Parking is free for senior citizens";
+			cout << "Parking is free for senior citizens\n";
 			return 0;
 			break;
 		default:
 			cout << "An error has occured";
 	}
 
-	if (hours <= 1 ) {
+	cout << "Please enter the number of minutes you have parked in the lot: ";
+
+	cin >> minutes;
+	if (minutes < 0) {
+		cout << "Invalid input\n";
+		system("pause");
+		return -1;
+	}
+
+	hours = ceil((minutes / 60.0));
+
+	if (hours <= 1.0 ) {
 		charge = rate0;
 	}
 	else if (hours <= interval){
-		charge = (hours - 1.00) * rate1;
+		charge = (hours - 1.00) * rate1 + rate0;
 	}
 	else {
-		charge = (interval - 1) * rate1 + (hours - interval) * rate2;
+		charge = (rate0) + (interval * rate1) + ((hours - interval - 1.00) * rate2);
 	}
 	cout << cout.precision(2) << fixed;
 	cout << "Your total is: $" << charge << endl;
