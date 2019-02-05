@@ -99,7 +99,7 @@ int getCharge(char type) {
 	else {
 		charge = (rate0) + (interval * rate1) + ((hours - interval - 1.00) * rate2);
 	}
-	cout << cout.precision(2) << fixed;
+	cout << setprecision(2) << fixed;
 	cout << "Your total is: $" << charge << endl;
 	system("pause");
 	return 0;
