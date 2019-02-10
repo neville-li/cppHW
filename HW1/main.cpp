@@ -42,6 +42,7 @@ int main() {
 		generateMenu();
 		option = selectOption();
 		system("cls");
+
 		switch (option) {
 			case 'h':
 				showHelp();
