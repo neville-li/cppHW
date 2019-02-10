@@ -1,3 +1,11 @@
+// File Name …………………….. H1NevilleLi.cpp
+// Course ………………………... ELET 4309 Object-Oriented Application Programming
+// Programmer ………………….. Neville Li
+// Compiler …………………..….. Microsoft Visual Studio 2017
+// Operating System ………..….. Windows 10
+// Environment …………..…….... Console Applications
+// Date ……………………………. 02/12/2019
+
 /*	Program No. : HW1.CPP
 	Programmer : Neville Li
 	Course / Section : ELET 4309 - 01 / 19260
@@ -13,10 +21,11 @@
 /*	Program Description
 	___________________
 
-	Develope a C++ program for caculating parking fee. It prompts the user for vechicle type and how long the vehicle has been parked in minutes.
+	Develop a C++ program for calculating parking fee. It prompts the user for vehicle type and how long the vehicle has been parked in minutes.
 	Based on the inputs the program would calculate and displays the appropriate fee. The primary purpose of the main function is to act as a selection system
-	and call the approiate functions based on user's input
+	and call the appropriate functions based on user's input
 */
+
 
 
 #include <iostream>
@@ -42,7 +51,6 @@ int main() {
 		generateMenu();
 		option = selectOption();
 		system("cls");
-
 		switch (option) {
 			case 'h':
 				showHelp();
